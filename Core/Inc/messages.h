@@ -32,7 +32,7 @@
 #define VELOCITY_TYPE               0x01
 #define FORCE_VELOCITY_TYPE         0xAA
 
-#define NORMAL_REQUEST_LENGTH               5
+#define NORMAL_REQUEST_LENGTH               13//5
 #define NORMAL_RESPONSE_LENGTH              9
 #define TERMINAL_REQUEST_LENGTH             15
 #define TERMINAL_RESPONSE_LENGTH            16
@@ -49,7 +49,8 @@ struct VelocityRequest
     uint8_t AA;
     uint8_t type; // 0x01
     uint8_t address;
-    int8_t velocity;
+    int8_t velocity[8];
+    int8_t pwm_servo;
     uint8_t crc;
 };
 

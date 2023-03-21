@@ -2,7 +2,6 @@
 #include "backplate.h"
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx_hal_gpio.h"
-#include "stm32f1xx_hal_adc_ex.h"
 #include <string.h>
 #include <stdio.h>
 #include "messages.h"
@@ -23,13 +22,15 @@ uint32_t dtick;
 void backplate_init(){
     init_comm();
     init_thrusters();
-    init_sensors();
+ //   init_sensors();
 }
 
 void backplate_loop(){
     thrusters_update();
-    tx_presure(MS5837_02BA_get_actual_pressure());
-    update_com();
+   // tx_presure(MS5837_02BA_get_actual_pressure());
+
+  update_com();
+
 //	uint8_t data[] = {0xAA};
 //	HAL_I2C_Slave_Transmit	(&hi2c1, data, 1, HAL_MAX_DELAY);
 }

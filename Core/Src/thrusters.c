@@ -29,53 +29,53 @@ void thrusters_update(){
 }
 
 void init_thrusters_data(){
-    thrusters[0].address = 1;
+    thrusters[0].address = 2;
     thrusters[0].velocity = 0;
     thrusters[0].htim = &htim1;
     thrusters[0].chanel = TIM_CHANNEL_1;
     thrusters[0].need_update = true;
 
-    thrusters[1].address = 2;
+    thrusters[1].address = 0;
     thrusters[1].velocity = 0;
     thrusters[1].htim = &htim1;
     thrusters[1].chanel = TIM_CHANNEL_2;
     thrusters[1].need_update = true;
 
-    thrusters[2].address = 3;
+    thrusters[2].address = 4;
     thrusters[2].velocity = 0;
     thrusters[2].htim = &htim1;
     thrusters[2].chanel = TIM_CHANNEL_3;
     thrusters[2].need_update = true;
 
-    thrusters[3].address = 4;
+    thrusters[3].address = 7;
     thrusters[3].velocity = 0;
     thrusters[3].htim = &htim1;
     thrusters[3].chanel = TIM_CHANNEL_4;
     thrusters[3].need_update = true;
 
-    thrusters[4].address = 5;
+    thrusters[4].address = 6;
     thrusters[4].velocity = 0;
     thrusters[4].htim = &htim2;
     thrusters[4].chanel = TIM_CHANNEL_1;
     thrusters[4].need_update = true;
 
-    thrusters[5].address = 6;
+    thrusters[5].address = 5;
     thrusters[5].velocity = 0;
     thrusters[5].htim = &htim2;
     thrusters[5].chanel = TIM_CHANNEL_2;
     thrusters[5].need_update = true;
 
-    thrusters[6].address = 7;
+    thrusters[6].address = 3;
     thrusters[6].velocity = 0;
     thrusters[6].htim = &htim2;
     thrusters[6].chanel = TIM_CHANNEL_3;
     thrusters[6].need_update = true;
 
-    thrusters[7].address = 8;
+    thrusters[7].address = 1;
     thrusters[7].velocity = 0;
     thrusters[7].htim = &htim2;
     thrusters[7].chanel = TIM_CHANNEL_4;
-    thrusters[6].need_update = true;
+    thrusters[7].need_update = true;
 };
 
 void init_thrusters(){
@@ -85,6 +85,7 @@ void init_thrusters(){
     HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_2);
     HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_3);
     HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
+
     HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_1);
     HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_2);
     HAL_TIM_PWM_Start_IT(&htim2, TIM_CHANNEL_3);

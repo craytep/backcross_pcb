@@ -7,7 +7,7 @@
 #include "MS5837-02BA.h"
 
 extern UART_HandleTypeDef huart1;
-static uint8_t message_buff[10];
+static uint8_t message_buff[13];
 extern I2C_HandleTypeDef hi2c1;
 
 #define I2C_TX_TIMEOUT 1000
@@ -24,8 +24,12 @@ bool frameready = false;
 
 bool parse_velocity_package(uint8_t  *message)
 {
-    if  (IsChecksum8bCorrect(message, VELOCITY_REQUEST_LENGTH))  {
-        set_thruster_velocity(((struct VelocityRequest*)message)->address, ((struct VelocityRequest*)message)->velocity);
+    if  (IsChecksum8bCorrect(message, NORMAL_REQUEST_LENGTH))  {
+    	for(int i = 0; i < 8; i++)
+    	{
+        set_thruster_velocity(i, ((struct VelocityRequest*)message)->velocity[i]);
+    	}
+        return true;
     }
     return false;
 }
